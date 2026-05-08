@@ -60,3 +60,52 @@ let gingerchaiobj= new GingerChai();
 let masalachaiobj= new MasalaChai();
 serveChai(gingerchaiobj);
 
+
+//creating customtype guard for object
+type chai={
+    name:string,
+    price:number 
+}
+// yo chai ma parxa ki nai yesari check gare ni bho 
+let myChai:chai={
+  name:"ginger chai",
+  price: 100
+}
+// nabhaye function banara check ganda ni bho ki chai type lai follow garxa ki nai bhanera
+function isChai(obj:any): obj is chai{ //: obj is chai chai if funciton le true return garyo bhane tyo obj surely chai type bhanera bujauxa
+  return ( 
+  typeof obj === "object" &&
+  obj !== null &&
+  typeof obj.name === "string" &&
+  typeof obj.price === "number"
+  );
+} 
+
+let obj1={
+  name:"masala chai",
+  price: 150  }
+
+  let obj2={
+name :"Sameer"
+  }
+  console.log(isChai(obj1))
+  console.log(isChai(obj2))
+
+
+  type LemonChai= {type: "lemon", price: number}
+  type CardamomChai= {type: "cardamom", spicelevel: "high"}
+
+  function brew(chai: LemonChai | CardamomChai){
+    if("spicelevel" in chai){ // chai ma spicelevel xa ki nai check garxa
+        console.log("brewing cardamom chai with spice level: " + chai.spicelevel);
+    }
+  }
+
+  // any and unknwn
+  let a: any = 10;
+a.toUpperCase(); // No error in TS, may crash later
+
+let b: unknown = 10;
+// b.toUpperCase(); // Error
+
+// any ra unkonwn usta ustai ho tara unknown is much safer than any because it forces you to do type checking before using the variable, while any allows you to use it without any checks, which can lead to runtime errors.
