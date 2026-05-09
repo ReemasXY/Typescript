@@ -27,6 +27,11 @@ class serveChai1 implements MasalaChai {
 }
 
 // mathi ko ma error naaye pani most cases ma class ko bhitra type use garyo bhane error auna sakxa so  JUST REMEMBER TO USE INTERFACE INSTEAD OF TYPE IN CLASS
+// example  of error using type instead of interface
+// type Cupsize= "medium "| "large"
+// class Teacup implements Cupsize{
+
+// }
 
 // Intersection in ts
 
