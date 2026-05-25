@@ -3,7 +3,10 @@
 // axios ma by default install bhara auxa (but kunai kunai still hudaina)
 // so hints ra error chai dekhauxa ts ma 
 
-import {AxiosResponse, isAxiosError} from "axios";// Axios Response datatype ho 
+import {type AxiosResponse, isAxiosError} from "axios";// Axios Response datatype ho 
+// type AxiosResponse bhanna le yo yeuta function haina but it is a data type ho hai bhanna lai rakhe ho natra warning auxa
+
+// isAxiosError ma parena kina bhane type haina yo function ho
 import axios from "axios";
 axios.get('https://sameer.com').then(res=>{
     console.log(res.data)
